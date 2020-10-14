@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
 
-function App() {
+import axios from 'axios'
+
+export default function App() {
+  useEffect(() => {
+
+    var config = {
+      method: 'get',
+      url: 'https://www.priceshoes.com/searchsuiteautocomplete/ajax/index/?q=153502',
+      mode: 'no-cors',
+      headers: {
+        'Accept': 'application/json, text/javascript, */*; q=0.01',
+        'X-NewRelic-ID': 'Vg4GVFBRDRAGXVNVBAkEUFc=',
+        'X-Requested-With': 'XMLHttpRequest',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36',
+        'Sec-Fetch-Site': 'same-origin',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Dest': 'empty',
+        'Referer': 'https://www.priceshoes.com/',
+        'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
+      },
+      withCredentials: true,
+      credentials: 'same-origin',
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>PriceShoes</h1>
     </div>
-  );
+  )
 }
-
-export default App;
