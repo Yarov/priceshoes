@@ -1,65 +1,43 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Axios from 'axios'
+
+const initialState = {
+  pk: '',
+  products: {}
+}
 
 export default function Home() {
+  const [state, setstate] = useState(initialState)
+
+  const handlerSearch = async () => {
+    setstate({...state, products: {} })
+    const request = await Axios.get(`/api/products/${state.pk}`)
+    setstate({ ...state, products: request.data })
+  }
+  console.log(state);
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Priceshoes Prime</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="search">
+        <h1>Buscar productos</h1>
+        <div className="control">
+          <input className="input" type="text" onChange={(e) => setstate({ ...state, pk: e.target.value })} value={state.pk} placeholder="ingresa el id del producto" />
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+        <button className="button is-link" onClick={() => handlerSearch()}>Buscar</button>
+      </div>
+      <div className="products">
+        {
+          state.products.data && state.products.data.map(product => (
+            <div className="produc">
+              <h2>{product.name}</h2>
+              <img width="400" src={product.image} alt="" />
+            </div>))
+        }
+      </div>
     </div>
   )
 }
