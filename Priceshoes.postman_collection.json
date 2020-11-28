@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "fbf92b73-af98-4fe5-872b-0fa483306409",
+		"name": "Priceshoes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/socio",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"host": true,
+					"user-agent": true,
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Basic a2lvc2NvczpLMSpzYzAkMjAxOCM=",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "rest.priceshoes.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rest.priceshoes.com/ecommerce/kiosko/login?IdSocio=071500011081",
+					"protocol": "https",
+					"host": [
+						"rest",
+						"priceshoes",
+						"com"
+					],
+					"path": [
+						"ecommerce",
+						"kiosko",
+						"login"
+					],
+					"query": [
+						{
+							"key": "IdSocio",
+							"value": "071500011081"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/product/tienda",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic a2lvc2NvczpLMSpzYzAkMjAxOCM=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rest.priceshoes.com/ecommerce/consultaridart/consultarIdArt?idArt=155109&idTienda=1",
+					"protocol": "https",
+					"host": [
+						"rest",
+						"priceshoes",
+						"com"
+					],
+					"path": [
+						"ecommerce",
+						"consultaridart",
+						"consultarIdArt"
+					],
+					"query": [
+						{
+							"key": "idArt",
+							"value": "155109"
+						},
+						{
+							"key": "idTienda",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/existenciaAll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic a2lvc2NvczpLMSpzYzAkMjAxOCM=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rest.priceshoes.com/ecommerce/todasexistencias/todasExistencias?idArt=155109",
+					"protocol": "https",
+					"host": [
+						"rest",
+						"priceshoes",
+						"com"
+					],
+					"path": [
+						"ecommerce",
+						"todasexistencias",
+						"todasExistencias"
+					],
+					"query": [
+						{
+							"key": "idArt",
+							"value": "155109"
+						},
+						{
+							"key": "idTienda",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/catalogos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://catalogos-virtuales.priceshoes.com/Flipbooks/library2.html",
+					"protocol": "http",
+					"host": [
+						"catalogos-virtuales",
+						"priceshoes",
+						"com"
+					],
+					"path": [
+						"Flipbooks",
+						"library2.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/apartados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic a2lvc2NvczpLMSpzYzAkMjAxOCM=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rest.priceshoes.com/ecommerce/apartados/v1/altaApartado?origen=A&tipo=A,M&idSocio=071500011081",
+					"protocol": "https",
+					"host": [
+						"rest",
+						"priceshoes",
+						"com"
+					],
+					"path": [
+						"ecommerce",
+						"apartados",
+						"v1",
+						"altaApartado"
+					],
+					"query": [
+						{
+							"key": "origen",
+							"value": "A"
+						},
+						{
+							"key": "tipo",
+							"value": "A,M"
+						},
+						{
+							"key": "idTienda",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "idSocio",
+							"value": "071500011081"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/tallas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic a2lvc2NvczpLMSpzYzAkMjAxOCM=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://rest.priceshoes.com/ecommerce/tallas/consultarTallas?idArt=155109",
+					"protocol": "https",
+					"host": [
+						"rest",
+						"priceshoes",
+						"com"
+					],
+					"path": [
+						"ecommerce",
+						"tallas",
+						"consultarTallas"
+					],
+					"query": [
+						{
+							"key": "idTienda",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "idArt",
+							"value": "155109"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

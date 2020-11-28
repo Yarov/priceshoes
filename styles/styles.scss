@@ -1,1 +1,22 @@
-@import 'bulma/bulma';
+@import "bulma/bulma";
+
+body,
+html {
+  background: #eee;
+}
+.header {
+  height: 7.5rem;
+  background: #fff;
+}
+.header {
+  display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+  .header-profile {
+    display: flex;
+    .inf {
+      p {
+      }
+    }
+  }
+}
